@@ -1,4 +1,3 @@
-
 generator client {
     provider = "prisma-client-js"
 }
@@ -32,6 +31,7 @@ model Residency {
     owner       User     @relation("Owner", fields: [userEmail], references: [email])
     createdAt   DateTime @default(now())
     updatedAt   DateTime @updatedAt
+    sold        Boolean  @default(false)
 
-    @@unique(fields: [address,userEmail])
+    @@unique(fields: [address, userEmail])
 }
